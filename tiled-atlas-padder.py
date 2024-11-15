@@ -5,6 +5,7 @@ atlas_name = "atlas.png" # Name of the atlas image file
 tile_res = (16, 16) # Side length of tile
 padding_size = 1 # Size of padding in pixels
 padding_color = (0, 0, 0, 0) # Color used for the padding
+output_name = "res.png" # Name of the output file
 
 with Image.open(atlas_name) as im:
 	w, h = im.size # width, height
@@ -17,4 +18,4 @@ with Image.open(atlas_name) as im:
 			tile_pos = x * tile_res[0], y * tile_res[1]
 			tile = im.crop((tile_pos[0], tile_pos[1], tile_pos[0] + tile_res[0], tile_pos[1] + tile_res[1]))
 			new_im.paste(tile, (x * ptile_res[0], y * ptile_res[1]))
-	new_im.save("res.png")
+	new_im.save(output_name)
